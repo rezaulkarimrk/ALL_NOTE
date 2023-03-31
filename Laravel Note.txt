@@ -1,0 +1,20 @@
+//Yajra All Requirment
+composer require yajra/laravel-datatables-oracle:"^10.0"
+'providers' => [
+    Yajra\DataTables\DataTablesServiceProvider::class,
+],
+
+php artisan vendor:publish --tag=datatables
+
+
+
+
+//Image Intervation
+composer.phar require intervention/image
+Intervention\Image\ImageServiceProvider::class
+'Image' => Intervention\Image\Facades\Image::class
+php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
+
+
+//bumbummen99
+composer require bumbummen99/shoppingcart

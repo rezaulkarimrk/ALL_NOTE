@@ -1,0 +1,324 @@
+SHOW DATABASES;
+CREATE DATABASE name;
+DROP TABLE name		//for delete database
+
+CREATE TABLE student
+(
+	Roll int(5),
+	Name varchar(20),
+	Gender varchar(10),
+	Age int(5),
+	GPA double(3, 2),
+	City varchar(15),
+	PRIMARY KEY(Roll)
+);
+
+INSERT INTO students_details
+(Roll, Name, Gender, Age, GPA, City)
+VALUES
+(7290, 'Rezaul Karim', 'Male', 24, 3.17, 'Joypurhat'),
+(7289, 'Rezaul Karim', 'Male', 24, 3.17, 'Joypurhat');
+
+
+SELECT Name, Roll
+FROM students_details;
+
+SELECT *
+FROM students_details;
+
+SELECT DISTINCT City
+FROM students_details;
+
+SELECT *
+FROM students_details
+LIMIT 5;
+
+SELECT *
+FROM students_details
+LIMIT 2, 5;
+
+SELECT Name
+FROM students_details
+ORDER BY Name;
+
+SELECT Roll, Name, GPA
+FROM students_details
+ORDER BY Name DESC;
+
+SELECT 3+9;
+
+SELECT City
+FROM students_details
+WHERE Gender='Female';
+
+SELECT DISTINCT City
+FROM students_details
+WHERE Gender='Male'
+ORDER BY City DESC;
+
+SELECT *
+FROM students_details
+WHERE Age=23;
+
+SELECT *
+FROM students_details
+WHERE Roll=7289;
+
+SELECT Roll, Name GPA
+FROM students_details
+WHERE Roll BETWEEN 7288 AND 7295;
+
+SELECT Roll, Name, Age, GPA
+FROM students_details
+WHERE Roll != 7289;
+
+SELECT * 
+FROM students_details
+WHERE Gender='Male' OR GPA >= 3.22;
+
+SELECT * 
+FROM students_details
+WHERE Gender='Male' AND GPA >= 3.22;
+
+SELECT *
+FROM students_details
+WHERE City='Lalmonirhat'
+			AND
+            (Gender='female' OR GPA>3.22);
+
+SELECT *
+FROM students_details
+WHERE City IN('Joypurhat', 'Bogura', 'Lalmorinhat');
+
+SELECT *
+FROM students_details
+WHERE City NOT IN('Joypurhat', 'Bogura', 'Lalmorinhat');
+
+SELECT *
+FROM `students_details`
+WHERE Name LIKE 'S%';
+
+SELECT *
+FROM `students_details`
+WHERE Name LIKE '%S';
+
+SELECT *
+FROM `students_details`
+WHERE Name LIKE '__S%';
+
+SELECT *
+FROM `students_details`
+WHERE Name LIKE '%I_';
+
+SELECT Roll AS ID, Name AS "First Name"
+FROM students_details;
+
+CREATE TABLE Teachers
+(
+    ID int NOT NULL AUTO_INCREMENT,
+    Name varchar(15) NOT NULL,
+    Salary double(10, 2),
+    PRIMARY KEY(ID)
+);
+
+UPDATE teachers
+SET Salary=35000
+WHERE ID=35;
+
+DELETE FROM teachers
+WHERE ID=335;
+
+DELETE FROM teachers
+WHERE ID>335;
+
+UPDATE Salary
+SET Salary = Salary+5000
+WHERE Salary > 10000;
+
+SELECT UPPER('i am Rezaul Karim RK');
+SELECT LOWER('I AM REZAUL KARIM RK');
+
+SELECT UPPER(City)
+FROM students_details;
+
+SELECT CONCAT('Welcome to ', 'MySQL DATABASE');
+
+SELECT CONCAT(Name, ' is ', Age, ' Years old.')
+FROM students_details;
+
+SELECT GREATEST(20, 3, 24, -45, 45, 2);
+SELECT LEAST(20, 3, 24, -45, 45, 2);
+SELECT POW(2, 3);
+SELECT LOG(2);
+SELECT TRUNCATE(12.84938503843, 2);
+SELECT TRUNCATE(LOG(2), 2);
+SELECT RAND();
+SELECT EXP(3);
+
+
+DESCRIBE teachers;
+
+SELECT COUNT (*)
+FROM students_details;
+
+SELECT MAX(GPA)
+FROM students_details;
+
+SELECT MIN(GPA)
+FROM students_details;
+
+SELECT SUM(Salary), AVG(salary)
+FROM teachers;
+
+SELECT COUNT(Salary), MAX(Salary), MIN(Salary), SUM(Salary), AVG(Salary)
+FROM teachers;
+
+SELECT MIN(GPA)
+FROM student_details
+WHERE Gender='Female';
+
+SELECT Roll, Name, Age, City, MIN(GPA)
+FROM student_details
+WHERE Gender='Female';
+
+
+INSERT INTO teacher (Name, Salary)
+VALUES
+('Selina', 32000),
+('Asad', 38000),
+('Sohid', 335000),
+('Alin', 33000),
+('Dola Barua', 32000);
+
+
+
+SELECT *
+FROM `teachers`
+WHERE salary > (SELECT AVG(Salary) FROM teachers);
+
+
+ALTER TABLE teachers
+ADD Age int(5);
+
+ALTER TABLE teachers
+ADD Dept varchar(15);
+
+ALTER TABLE teachers
+CHANGE Dept Depertment varchar(15);
+
+ALTER TABLE teachers
+DROP COLUMN Age;
+
+ALTER TABLE teachers
+DROP COLUMNS Age, Dept;
+
+UPDATE teachers
+SET Depertment='CSE'
+WHERE ID = 353;
+
+SELECT Depertment, SUM(Salary)
+from teachers
+GROUP BY Depertment;
+
+SELECT Depertment, SUM(Salary)
+from teachers
+GROUP BY Depertment
+ORDER BY SUM(Salary) DESC;
+
+TRUNCATE TABLE students_details;
+
+CREATE TABLE student_details
+(
+    ID int NOT NULL AUTO_INCREMENT,
+    Name varchar(20) NOT NULL,
+    Gender varchar(10),
+    Age int,
+    PRIMARY KEY(Roll)
+);
+
+INSERT INTO exam_result(Reg_Number, Roll, GPA, Name)
+VALUES
+(20171, 102, 3.25, 'Science'),
+(20172, 101, 3.44, 'Vocational'),
+(20173, 103, 4, 'Arts'),
+(20174, 104, 5, 'Commerce');
+
+
+SELECT student_details.Roll, Reg_Number, Name, Gender, Group_Name, GPA
+FROM student_details, exam_result
+WHERE student_details.Roll = exam_result.Roll;
+
+
+SELECT student_details.Roll, exam_result.Reg_Number, student_details.Name, student_details.Gender, exam_result.Group_Name, exam_result.GPA
+FROM student_details, exam_result
+WHERE student_details.Roll = exam_result.Roll;
+
+SELECT std.Roll, exam.Reg_Number, std.Name, std.Gender, exam.Group_Name, exam.GPA
+FROM student_details AS std, exam_result AS exam
+WHERE std.Roll = exam.Roll;
+
+SELECT std.Roll, exam.Reg_Number, std.Name, std.Gender, exam.Group_Name, exam.GPA
+FROM student_details AS std JOIN exam_result AS exam
+ON std.Roll = exam.Roll;
+
+SELECT STD.Roll, EXAM.Reg_Number, STD.Name, STD.Gender, exam.GPA,exam.Group_Name
+FROM student_details AS std INNER JOIN exam_result AS exam
+ON std.Roll = exam.Roll;
+
+SELECT STD.Roll, EXAM.Reg_Number, STD.Name, STD.Gender, exam.GPA,exam.Group_Name
+FROM student_details AS std LEFT JOIN exam_result AS exam
+ON std.Roll = exam.Roll;
+
+SELECT STD.Roll, EXAM.Reg_Number, STD.Name, STD.Gender, exam.GPA,exam.Group_Name
+FROM student_details AS std RIGHT JOIN exam_result AS exam
+ON std.Roll = exam.Roll;
+
+SELECT Roll, Name, Age
+FROM dhaka_tour
+UNION
+SELECT Roll, Name, Age
+FROM sylet_tour;
+
+SELECT Roll, Name, Age
+FROM dhaka_tour
+UNION ALL
+SELECT Roll, Name, Age
+FROM sylet_tour
+
+
+CREATE VIEW student_view AS
+SELECT Roll, Name, Gender
+FROM student_details;
+
+SELECT Roll, Name
+FROM student_view;
+
+UPDATE student_view
+SET Name = 'Fahima'
+WHERE Roll = 106;
+
+INSERT INTO student_view
+(Roll, Name, Gender)
+VALUES
+(108, 'Hasina', 'Female');
+
+DELETE FROM student_view
+WHERE Roll = 108;
+
+DROP VIEW student_view;
+
+SELECT CURDATE();
+SELECT CURTIME();
+SELECT NOW();
+SELECT ADDDATE('2023-3-31', INTERVAL 5 DAY);
+SELECT ADDDATE('2023-3-31', INTERVAL 5 MONTH);
+SELECT SUBDATE('2023-3-31', INTERVAL 5 DAY);
+SELECT MAKEDATE(2018, 312);
+SELECT DAYNAME('1996-05-17');
+SELECT MONTHNAME('1996-05-17');
+
+SELECT DAYNAME(DOB)
+FROM student_details;
+
+SELECT DOB, DAYNAME(DOB)
+FROM student_details;
