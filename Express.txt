@@ -1,0 +1,59 @@
+touch fileName //for create file in terminal
+npm init -y
+or
+npm init
+
+
+npm install express nodemon
+app.use(express.urlencoded({extended: true}));
+
+
+
+
+npm install body-parser
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+
+
+npm install dotenv
+npm install cors
+npm init -y && npm install express nodemon cors body-parser dotenv uuid
+
+
+npm install dotenv express core mongoose nodemon
+
+
+npm install --save multer
+
+npm install express -D morgan
+
+npm install chalk@^4.1.2
+
+npm i express-validator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://brilliant-scone-b2426f.netlify.app
+https://news-developed-by-rk.netlify.app
+https://marketplace-by-rk.netlify.app/
+https://random-user3.netlify.app/
+https://all-country-again.netlify.app/
+https://todo-app-developed-by-rk.netlify.app/
+https://dynamic-routing-devloped-by-rk.netlify.app/
+https://faqs-developed-by-rk.netlify.app/
+https://world-all-counntry-developed-by-rk.netlify.app/

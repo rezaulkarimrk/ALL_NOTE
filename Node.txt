@@ -1,0 +1,18 @@
+npm init
+npm install package_name
+or 
+npm i package_name
+npm init -y
+npm install nodemon
+node-app-serv	//temp
+
+$ heroku login
+
+$ cd my-project/
+$ git init
+$ heroku git:remote -a node-app-serv
+
+$ git add .
+$ git commit -am "make it better"
+$  
+
