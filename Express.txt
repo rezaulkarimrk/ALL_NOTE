@@ -32,6 +32,8 @@ npm install chalk@^4.1.2
 
 npm i express-validator
 
+npm install joi
+
 
 
 

@@ -1,0 +1,12 @@
+npm install express nodemon dotenv cors mongoose
+
+npm i mongoose-encryption
+
+npm install md5
+
+npm i bcrypt
+
+
+npm install express nodemon dotenv mongoose ejs cors bcrypt passport express-session
+npm i connect-mongo
+npm install passport-local
