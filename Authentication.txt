@@ -10,3 +10,19 @@ npm i bcrypt
 npm install express nodemon dotenv mongoose ejs cors bcrypt passport express-session
 npm i connect-mongo
 npm install passport-local
+
+again
+npm install express nodemon dotenv mongoose ejs
+npm install cors
+npm install bcrypt
+npm install passport express-session
+npm install connect-mongo
+npm install passport-local
+
+
+//passport-jwt
+bcrypt, cors, dotenv, express, mongoose, nodemon, jsonwebtoken
+npm install passport-jwt
+npm install passport
+//react
+react-router-dom, axios
