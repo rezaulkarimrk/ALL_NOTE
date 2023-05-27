@@ -1,2 +1,13 @@
 composer create laravel/larave project-name
 php artisan
+php artisan route:list
+php artisan make:controller controllerName
+php artisan make:controller controllerName --resource
+php artisan migrate
+php artisan make:model modelName -m
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:rollback --step=5
+php artisan migrate:status
+php artisan migrate:reset
+php artisan migrate:refresh --step=5
