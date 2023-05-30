@@ -3,7 +3,7 @@ php artisan
 php artisan route:list
 php artisan make:controller controllerName
 php artisan make:controller controllerName --resource
-php artisan migrate
+php artisan make:migration
 php artisan make:model modelName -m
 php artisan migrate
 php artisan migrate:rollback
@@ -11,3 +11,17 @@ php artisan migrate:rollback --step=5
 php artisan migrate:status
 php artisan migrate:reset
 php artisan migrate:refresh --step=5
+php artisan tinker
+User::factory()->count(5)->create();
+User::where('id', '>=', 2)->orderBy('id', 'desc')->get()
+php artisan make:request requestName
+
+composer require laravel/ui 3.0.0  //now update to many and not be support 3.0.0
+php artisan ui bootstrap
+php artisan ui:controllers
+php artisan ui:controllers
+npm install
+npm run dev
+
+php artisan make:test HomeTest
+./vendor/bin/phpunit
